@@ -32,7 +32,13 @@ export class FirebaseService{
       return this.categories;
   }
   addBusiness(business){
-      this.business.push(business);
+     return this.business.push(business);
   }
+  updateBusiness(business,key){
+     return this.business.update(key,business);
+  }
+  deleteBusiness(key){
+     return this.business.remove(key);
+  }  
 
 }
