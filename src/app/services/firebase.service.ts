@@ -12,7 +12,7 @@ export class FirebaseService{
   constructor(private _af: AngularFire) {
   }
   getBusiness(categoryName:string=null){
-      if(categoryName){
+      if(categoryName && categoryName !="0"){
         this.business=this._af.database.list('/businesses',{
             query:{
                 orderByChild:'category',
@@ -30,6 +30,9 @@ export class FirebaseService{
       this.categories=this._af.database.list('/categories') as
       FirebaseListObservable<Category[]>
       return this.categories;
+  }
+  addBusiness(business){
+      this.business.push(business);
   }
 
 }
